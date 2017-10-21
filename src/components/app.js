@@ -11,6 +11,7 @@ angular.module('video-player')
     this.videos = [];
     this.currentVideo = null;
     this.searchService = youTube;
+    this.searchInput = '';
     this.handleTitleClick = (video) => {
       console.log(video);
       this.currentVideo = video;
@@ -30,4 +31,15 @@ angular.module('video-player')
       });
     };
     this.handleSearchClick('cats');
+    this.handleInputChange = (searchInput) => {
+      console.log(searchInput, 'clicked in search');
+      this.searchService.search({
+        query: searchInput,
+        max: 5,
+        key: window.YOUTUBE_API_KEY
+      }, (newVideos) => {
+        this.videos = newVideos,
+        this.currentVideo = newVideos[0];
+      });
+    };
   });
