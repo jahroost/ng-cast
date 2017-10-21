@@ -12,6 +12,14 @@ angular.module('video-player')
     this.currentVideo = null;
     this.searchService = youTube;
     this.searchInput = '';
+    this.autoPlay = false;
+    this.autoPlayString = '';
+    this.toggleAutoplay = () =>
+      {console.log('clicked autoplay', this.autoPlay) 
+      this.autoPlay = !this.autoPlay;
+      console.log(this.autoPlay)
+      !this.autoPlay ? this.autoPlayString = '?autoplay=1' : this.autoPlayString = '';
+    }
     this.handleTitleClick = (video) => {
       console.log(video);
       this.currentVideo = video;

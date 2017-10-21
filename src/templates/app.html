@@ -6,7 +6,8 @@
   </nav>
   <div class="row">
     <div class="col-md-7">
-      <video-player video="$ctrl.currentVideo"><h5><em>videoPlayer</em> component goes here</h5></video-player>
+      <video-player video="$ctrl.currentVideo" auto-play-string="$ctrl.autoPlayString"><h5><em>videoPlayer</em> component goes here</h5></video-player>
+      <button type="button" class="autoplay" ng-click="$ctrl.toggleAutoplay()">AutoPlay</button>
     </div>
     <div class="col-md-5">
       <video-list handle-title-click="$ctrl.handleTitleClick" videos="$ctrl.videos"><h5><em>videoList</em> component goes here</h5></video-list>
