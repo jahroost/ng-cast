@@ -8,13 +8,13 @@ angular.module('video-player')
     templateUrl: 'src/templates/app.html'
   })
   .controller('AppController', function(youTube) {
-    this.videos = window.exampleVideoData;
-    this.currentVid = this.videos[0];
+    this.videos = [];
+    this.currentVideo = null;
     this.searchService = youTube;
     this.handleTitleClick = (video) => {
       console.log(video);
-      this.currentVid = video;
-      console.log(this.currentVid, 'curreentVid');
+      this.currentVideo = video;
+      console.log(this.currentVideo, 'curreentVid');
       //this.currentVid = video;
     //this.handleTitleClick = this.handleTitleClick.bind(this);
     };
@@ -26,7 +26,8 @@ angular.module('video-player')
         key: window.YOUTUBE_API_KEY
       }, (newVideos) => {
         this.videos = newVideos,
-        this.currentVid = newVideos[0];
+        this.currentVideo = newVideos[0];
       });
     };
+    this.handleSearchClick('cats');
   });
